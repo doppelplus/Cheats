@@ -155,6 +155,12 @@
 				\item Im Motor gespeicherte el. Energie: \quad $W_{el} = \frac{1}{2}LI^2$
 				\item Im Kondensator gespeicherte el. Energie: \quad $W_{el} = \frac{1}{2}CU^2$
 			\end{symbolbox}
+			\begin{cookbox}{Frequenzumrichter}
+				\item Schlupf zum gewünschten Drehmoment ausrechnen, da der Schlupf vom Drehmoment abhängig ist.
+				\item Statordrehzahl berechnen: $n_1 = n\cdot(1+s)$
+				\item Drehfeldfrequenz berechnen: $f_1 = n_1 \cdot p$
+				\item ...Profit
+			\end{cookbox}
 	\end{sectionbox}
 
 \section{Getriebe}
@@ -268,7 +274,6 @@
 			\begin{sectionbox}
 				\subsubsection{Hartmagneten}
 				\begin{tablebox}{p{2.8cm}|p{1cm}|p{1cm}|p{1cm}}
-
 					Formelzeichen & &$SmCo_{5/17}$& $NdFeB$\\
 					Koerzitivfeldstärke (kA/m) & 100-350 & 600-850 & 500-1100\\
 					Remanenzflussdichte (T) & 0,2-0,4 & 0,9-1,2 & 0,7-1,5\\
@@ -594,7 +599,7 @@
 					\item $U_i = c\cdot \phi \cdot \omega = c \cdot \phi \cdot 2\pi n = U_A - R_A\cdot I_A$
 					\item $U_A = c\cdot \phi \cdot \omega +R_A\cdot I_A$
 					\item $n_0 = \frac{U_i}{2\pi\cdot c\cdot \phi}$
-					\item $R_A = \frac{-c\cdot \phi\cdot (2\cdot c\cdot \phi \cdot I\cdot \pi - U_A)}{M}$
+					\item $R_A = \frac{P_{el}-P_n}{I_A^2} = \frac{-c\cdot \phi\cdot (2\cdot c\cdot \phi \cdot I\cdot \pi - U_A)}{M}$
 					\item Proportionalitätskonstante: $c =\frac{4}{2\pi}\cdot w_A\cdot p$
 					\item Inneres Drehmoment: $M_i = c\cdot \phi \cdot I_A$
 					\item $ P_{i, el} = P_{i, mech} = M_i \cdot \omega = U_i\cdot I_A$
