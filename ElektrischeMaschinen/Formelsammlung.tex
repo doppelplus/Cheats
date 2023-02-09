@@ -587,7 +587,7 @@
 			\subsection{Aufbau des Ständers}
 				\includegraphics[width=150px]{Staenderaufbau.png}
 			\subsection{Ersatzschaltbild}
-				\includegraphics[width=180px]{DC_Ersatzschaltbild.png}
+				\includegraphics[width=120px]{DC_Ersatzschaltbild.png}
 				\begin{symbolbox}
 					\item Windungszahl im Anker: $w_A$
 					\item $U_A = U_i +R_A\cdot I_A+L\cdot \frac{dI_A}{dt}$
@@ -601,6 +601,24 @@
 					\item Haltedrehmoment: $M_H = c\cdot \phi \cdot \frac{U_A}{R}$
 					\item $n(M_i) = \frac{U_A}{2\pi\cdot c\cdot \phi}-\frac{R_A}{2\pi(c\cdot \phi)^2}\cdot M_i$
 					\item $M_i(n) = c\cdot \phi\cdot \frac{U_A}{R_A}-n\cdot \frac{2\pi(c\cdot \phi)^2}{R_A}$
+				\end{symbolbox}
+
+				\begin{bluebox}{Nebenschluss-Motor}
+					\item $c_n = c\cdot \frac{2\pi}{60\,s/min}$
+					\item $M = c\cdot \phi \cdot I_A$
+					\item $U_{ind} = c_n \cdot \phi \cdot n$
+					\item $U = R_A\cdot I_A + U_{ind}$
+					\item $n_N = \underbrace{\frac{60\,s/min\cdot U}{2\pi\cdot c\cdot \phi}}_{n_0, ideal}-\underbrace{\frac{60\,s/min\cdot M\cdot R_A}{2\pi\cdot(c\phi)^2}}_{\Delta_n}$
+					\item $M = c_n\cdot \frac{60\,s/min}{2\pi}\cdot \frac{\phi}{R_A}\cdot (U-c_n\cdot \phi \cdot n)$
+				\end{bluebox}
+
+				\begin{symbolbox}{Reihenschluss-Motor}
+					\item $c_n = c\cdot \frac{2\pi}{60\,s/min}$
+					\item $c_{nR} = c_n \cdot k_r$ aus $\phi= k_r \cdot I$
+					\item $M = c_{nR}\cdot \frac{2\pi}{60\,s/min}\cdot I^2$
+					\item $U_{ind} = c_{Rn}\cdot I \cdot n$
+					\item $n = \frac{U-I\cdot R_A}{c_{Rn}\cdot I}$
+					\item $n = \frac{U}{\sqrt{c_{nR}\cdot \frac{60\,s/min}{2\pi} \cdot \sqrt{M}}}-\frac{R_A}{c_{nR}}$
 				\end{symbolbox}
 		\end{sectionbox}
 	
