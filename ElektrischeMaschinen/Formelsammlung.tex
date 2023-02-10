@@ -598,12 +598,12 @@
 					\item $U_A = U_i +R_A\cdot I_A+L\cdot \frac{dI_A}{dt}$
 					\item $U_i = c\cdot \phi \cdot \omega = c \cdot \phi \cdot 2\pi n = U_A - R_A\cdot I_A$
 					\item $U_A = c\cdot \phi \cdot \omega +R_A\cdot I_A$
-					\item $n_0 = \frac{U_i}{2\pi\cdot c\cdot \phi}$
-					\item $R_A = \frac{P_{el}-P_n}{I_A^2} = \frac{-c\cdot \phi\cdot (2\cdot c\cdot \phi \cdot I\cdot \pi - U_A)}{M}$
+					\item $\frac{n_{0N}}{n_N} = \frac{U_A}{U_i}$ \quad $\frac{n}{n_N} = \frac{U_i}{U_{iN}}$ Nur beim Fremderregten Motor
+					\item $R_A = \frac{P_{el}-P_n}{I_A^2} = \frac{-c\cdot \phi\cdot (2\cdot c\cdot \phi \cdot I\cdot \pi - U_A)}{M} = \frac{U_A-U_i}{I_A}$
 					\item Proportionalitätskonstante: $c =\frac{4}{2\pi}\cdot w_A\cdot p$
 					\item Inneres Drehmoment: $M_i = \frac{c\cdot \phi}{2\pi} \cdot I_A$
 					\item $ P_{i, el} = P_{i, mech} = M_i \cdot \omega = U_i\cdot I_A$
-					\item Haltedrehmoment: $M_H = c\cdot \phi \cdot \frac{U_A}{R}$
+					\item Haltedrehmoment: $M_H = c\cdot \phi \cdot \frac{U_A}{R_A}$
 					\item $n(M_i) = \frac{U_A}{2\pi\cdot c\cdot \phi}-\frac{R_A}{2\pi(c\cdot \phi)^2}\cdot M_i$
 					\item $M_i(n) = c\cdot \phi\cdot \frac{U_A}{R_A}-n\cdot \frac{2\pi(c\cdot \phi)^2}{R_A}$
 					\item Anlaufdrehmoment: $M_i = \frac{c\cdot \phi \cdot U_A}{2\pi \cdot R_A}$
@@ -612,19 +612,19 @@
 				\begin{bluebox}{Nebenschluss-Motor}
 					\item $c_n = c\cdot \frac{2\pi}{60\,s/min}$
 					\item $M = c\cdot \phi \cdot I_A$
-					\item $U_{ind} = c_n \cdot \phi \cdot n$
-					\item $U = R_A\cdot I_A + U_{ind}$
-					\item $n_N = \underbrace{\frac{60\,s/min\cdot U}{2\pi\cdot c\cdot \phi}}_{n_0, ideal}-\underbrace{\frac{60\,s/min\cdot M\cdot R_A}{2\pi\cdot(c\phi)^2}}_{\Delta_n}$
-					\item $M = c_n\cdot \frac{60\,s/min}{2\pi}\cdot \frac{\phi}{R_A}\cdot (U-c_n\cdot \phi \cdot n)$
+					\item $U_i = c_n \cdot \phi \cdot n$
+					\item $U_A = R_A\cdot I_A + U_i$
+					\item $n_N = \underbrace{\frac{60\,s/min\cdot U_A}{2\pi\cdot c\cdot \phi}}_{n_0, ideal}-\underbrace{\frac{60\,s/min\cdot M\cdot R_A}{2\pi\cdot(c\phi)^2}}_{\Delta_n}$
+					\item $M = c_n\cdot \frac{60\,s/min}{2\pi}\cdot \frac{\phi}{R_A}\cdot (U_A-c_n\cdot \phi \cdot n)$
 				\end{bluebox}
 
 				\begin{symbolbox}{Reihenschluss-Motor}
 					\item $c_n = c\cdot \frac{2\pi}{60\,s/min}$
 					\item $c_{nR} = c_n \cdot k_r$ aus $\phi= k_r \cdot I$
 					\item $M = c_{nR}\cdot \frac{2\pi}{60\,s/min}\cdot I^2$
-					\item $U_{ind} = c_{Rn}\cdot I \cdot n$
-					\item $n = \frac{U-I\cdot R_A}{c_{Rn}\cdot I}$
-					\item $n = \frac{U}{\sqrt{c_{nR}\cdot \frac{60\,s/min}{2\pi} \cdot \sqrt{M}}}-\frac{R_A}{c_{nR}}$
+					\item $U_i = c_{Rn}\cdot I \cdot n$
+					\item $n = \frac{U_A-I\cdot R_A}{c_{Rn}\cdot I}$
+					\item $n = \frac{U_A}{\sqrt{c_{nR}\cdot \frac{60\,s/min}{2\pi} \cdot \sqrt{M}}}-\frac{R_A}{c_{nR}}$
 				\end{symbolbox}
 		\end{sectionbox}
 	
