@@ -113,8 +113,7 @@
 				\item Thermische Energie: Q
 				\item Momentanleistung am PN Übergang: $p_v = u \cdot i$
 				\item $Q = \int\limits_0^t p(t)\,dt$
-				\item \includegraphics[width=180px]{Verlustleistung.png}
-				\item \includegraphics[width=180px]{DiodeKühlkörper.png}
+				\item \includegraphics[width=180px]{TempErsatzschaltbild.png}
 			\end{bluebox}
 			\begin{tabular}{|l|c|c|}
 				\textbf{Bauelement}	& \textbf{Kennbuchstabe} & \textbf{Temperatur}\\
@@ -122,7 +121,7 @@
 				Siliziumkristall - Junction & J & $\vartheta_J$\\
 				Gehäuse - case & C & $\vartheta_C$\\
 				Kühlkörper - heatsink & K & $\vartheta_K$\\
-				Kühlmedien - ambient & A & $\vartheta_A$
+				Kühlmedien - ambient & U / A & $\vartheta_A$
 				
 			\end{tabular}
 	\end{sectionbox}
@@ -174,25 +173,57 @@
 	\end{sectionbox}
 \section{Gleichstromsteller im Einquadrantenbetrieb}
 	\begin{sectionbox}
-		\begin{bluebox}
-			\item Prinzipieller Aufbau Gleichstromsteller
-			\item \includegraphics[width=120px]{DCSteller.png}
-			\item Grundschaltung Tiefsetzsteller:
-			\item \includegraphics[width=120px]{Tiefsetzsteller.png}
-			\item $u_{SZ}(t) = \frac{\hat{U}_{SZ}}{T_S}\cdot t = U_{Steuer}$
-			\item $\frac{\hat{U}_{SZ}}{T_S}\cdot t_{ein} = U_{Steuer}$
-			\item $t_{ein} = \frac{U_{Steuer}}{\hat{U}_{SZ}}\cdot T_S$
-			\item \includegraphics[width=160px]{ZeitverlaufTiefsetzsteller.png}
-			\item Tastgrad: $D = \frac{t_{Ein}}{T_S}$
-			\item Schaltbedingung:
-			\item $u_{Komp} > 0 \Rightarrow $ MOSFET eingeschaltet $u_0(t) = U_d$
-			\item $u_{Komp} < 0 \Rightarrow $ MOSFET ausgeschaltet $ u_0(t) = 0$
-			\item Mittelwert der Ausgangsspannung: $U_0 = \frac{t_{ein}}{T_S}\cdot U_d = D \cdot U_d$
-			\item $T_S = \frac{1}{f_S}$
-			\item $t_{Ein} = \frac{U_{Steuer}}{\hat{U}_{SZ}}\cdot T_S$
-		\end{bluebox}
+		Prinzipieller Aufbau Gleichstromsteller
 
-	
+		\includegraphics[width=120px]{DCSteller.png}
+		\subsection{Tiefsetzsteller}
+			\begin{bluebox}
+				\item \includegraphics[width=160px]{Tiefsetzsteller.png}
+				\item $u_{SZ}(t) = \frac{\hat{U}_{SZ}}{T_S}\cdot t = U_{Steuer}$
+				\item $\frac{\hat{U}_{SZ}}{T_S}\cdot t_{ein} = U_{Steuer}$
+				\item $t_{ein} = \frac{U_{Steuer}}{\hat{U}_{SZ}}\cdot T_S$
+				\item \includegraphics[width=160px]{ZeitverlaufTiefsetzsteller.png}
+				\item Tastgrad: $D = \frac{t_{Ein}}{T_S}$
+				\item Schaltbedingung:
+				\item $u_{Komp} > 0 \Rightarrow $ MOSFET eingeschaltet $u_0(t) = U_d$
+				\item $u_{Komp} < 0 \Rightarrow $ MOSFET ausgeschaltet $ u_0(t) = 0$
+				\item Mittelwert der Ausgangsspannung: $U_0 = \frac{t_{ein}}{T_S}\cdot U_d = D \cdot U_d$
+				\item $T_S = \frac{1}{f_S}$
+				\item $t_{Ein} = \frac{U_{Steuer}}{\hat{U}_{SZ}}\cdot T_S$
+				\item Resonanzfrequenz: $f_C = \frac{1}{2\pi \sqrt{L\cdot C}}$
+				\item L und C sind so zu wählen: $f_C/f_S = 0,01\Rightarrow \frac{1}{2\pi\sqrt{L\cdot C}} = 0,01\cdot f_S$
+				\item Stromwelligkeit: $\Delta_{iL} = \frac{u_L}{L}\cdot t_{ein} = \frac{U_d-U_0}{L}\cdot t_{ein}$
+			\end{bluebox}
+			\subsubsection{Lückender Betrieb}
+				\begin{bluebox}
+					\item $I_{Lg} = \frac{1}{2}\cdot i_{L\,peak} = \frac{t_{ein}}{2L}\cdot (U_d-U_0) = \frac{D\cdot T_S}{2L}\cdot (U_d-U_0) = I_{0g}$
+					\item $\frac{U_0}{U_D} = \frac{D^2}{D^2+\frac{1}{4}\cdot \frac{I_0}{I_{L\,gmax}}}$
+					\qquad $D = \frac{U_0}{U_d}\cdot \sqrt{\frac{\frac{I_0}{I_{L\,gmax}}}{1-\frac{U_0}{U_d}}}$
+				\end{bluebox}	
+	\end{sectionbox}
+	\begin{sectionbox}
+		\subsection{Hochsetzsteller}
+			\begin{bluebox}
+				\item \includegraphics[width=160px]{Hochsetzsteller.png}
+				\item Der Mittelwert der Ausgangsspannung $U_0$ ist höher als der Mittelwert der Eingangsspannung $U_d$.
+				\item $U_d = U_L = L \cdot \frac{di_L}{dt}$
+				\item $i_L = \int U_d\,dt = \frac{U_d}{L}\cdot t = \frac{(U_d-U_0)}{L}\cdot t$
+				\item \includegraphics[width=180px]{ZeitverlaufHochsetzsteller.png}
+				\item $\frac{U_0}{U_d} = \frac{T_S}{T_S-t_{ein}} = \frac{1}{1-D}$
+			\end{bluebox}
+			\subsubsection{Lückender Betrieb}
+				\begin{bluebox}
+					\item $I_{Lg} = \frac{1}{2}\cdot i_{L\,peak} = \frac{t_{ein}}{2L}\cdot U_d = \frac{D}{2L}\cdot T_S\cdot U_d = \frac{T_S}{2L}\cdot D \cdot U_0 \cdot (1-D)^2$
+					\item 
+				\end{bluebox}
+	\end{sectionbox}
+\section{Gleichstromsteller im Zweiquadrantenbetrieb}
+	\begin{sectionbox}
+		\subsection{Zweiquadrantensteller mit Stromumkehr}
+			\includegraphics[width=180px]{ZweiquadrantenstellerStromumkehr.png}
+		\subsection{Zweiquadrantensteller mit Spannungsumkehr}
+			\includegraphics[width=180px]{ZweiquadrantenstellerSpannungsumkehr.png}
+
 	\end{sectionbox}
 % ======================================================================
 % End
