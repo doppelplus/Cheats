@@ -142,34 +142,57 @@
 				\item $S$: Strang
 				\item $N$: verkettet Größe
 			\end{bluebox}
+		\subsection{Welligkeit}
+			\begin{bluebox}
+				\item $w_U = \sqrt{\frac{U_{RMS}^2}{U_d^2}-1}$
+			\end{bluebox}
 		\subsection{Einphasige Mittelpunktschaltung M1}
 			\subsubsection{Aufbau und Funktion}
-				\includegraphics[width=120px]{Mittelpunktschaltung.png}
+				\includegraphics[width=110px]{Mittelpunktschaltung.png}
 			\subsubsection{Steuergesetz}
-				\begin{symbolbox}
-					\item Rein ohmsche Last: $U_{di\alpha} = \frac{\hat{U}_S}{2\pi}\cdot (1+\cos  \alpha)$
-					\item $\frac{U_{di\alpha}}{U_{di0}} = \frac{1+\cos \alpha}{2}$
-				\end{symbolbox}
-			\subsubsection{Welligkeit}
-				\begin{bluebox}
-					\item $U_{d~} = \sqrt{U^2_{d\,RMS}-U^2_{di\alpha}}$
-				\end{bluebox}
-		\subsection{Zweiphasige Mittelpunktschaltung}
-			\includegraphics[width=120px]{ZweiphasigeMittelpunktschaltung.png}
-				\begin{symbolbox}
-					\item $u_{s12} = u_{s1}-u_{s2} = u_N \cdot \frac{N_2}{N_1}$
-				\end{symbolbox}
+					Rein ohmsche Last: $U_{di\alpha} = \frac{\hat{U}_S}{2\pi}\cdot (1+\cos  \alpha)$
+
+					$\frac{U_{di\alpha}}{U_{di0}} = \frac{1+\cos \alpha}{2}$
+
+		\subsection{Zweiphasige Mittelpunktschaltung M2C}
+			\includegraphics[width=110px]{ZweiphasigeMittelpunktschaltung.png}
+
+			$u_{s12} = u_{s1}-u_{s2} = u_N \cdot \frac{N_2}{N_1}$
 			\subsubsection{Stromglättung}
 				Bei induktiver Last gilt: $u_d = u_R + u_L = i_d\cdot R+L\cdot \frac{di_d}{dt}$
 			\subsubsection{Steuergesetz}
-				\begin{bluebox}
-					\item Bei nicht lückendem Betrieb ergibt sich für $U_{di\alpha}$:
-					\item  $U_{di\alpha} = \frac{1}{2\pi}\int\limits_\alpha^{2\pi+\alpha}u_d(\omega t)d(\omega  t) = \frac{2\cdot \sqrt{2}}{\pi}\cdot \hat{U}_S \cdot \cos \alpha$
-				\end{bluebox}
-			
-			
-				
+				Bei nicht lückendem Betrieb ergibt sich für $U_{di\alpha}$:
 
+				$U_{di\alpha} = \frac{1}{2\pi}\int\limits_\alpha^{2\pi+\alpha}u_d(\omega t)d(\omega  t) = \frac{2\cdot \sqrt{2}}{\pi}\cdot \hat{U}_S \cdot \cos \alpha$
+		\subsection{Dreiphasige Mittelpunktschaltung M3C}
+			\includegraphics[width=120px]{M3C.png}
+
+			$U_{RMS} = \hat{U}_S \sqrt{\left[ \frac{1}{2}+\frac{3}{4\pi}\cdot \frac{\sqrt{3}}{2}\right]} = 0,8405\cdot \hat{U}_S$
+			\subsubsection{Steuergesetz}
+			$U_{di\alpha} = \frac{3\cdot \sqrt{3}\cdot \hat{U_s}}{2\pi}\cdot \cos \alpha = \frac{3\cdot \sqrt{3}\cdot \sqrt{2}\cdot U_{s}}{2\pi} \cdot \cos \alpha$
+
+	\end{sectionbox}
+\section{Gleichstromsteller im Einquadrantenbetrieb}
+	\begin{sectionbox}
+		\begin{bluebox}
+			\item Prinzipieller Aufbau Gleichstromsteller
+			\item \includegraphics[width=120px]{DCSteller.png}
+			\item Grundschaltung Tiefsetzsteller:
+			\item \includegraphics[width=120px]{Tiefsetzsteller.png}
+			\item $u_{SZ}(t) = \frac{\hat{U}_{SZ}}{T_S}\cdot t = U_{Steuer}$
+			\item $\frac{\hat{U}_{SZ}}{T_S}\cdot t_{ein} = U_{Steuer}$
+			\item $t_{ein} = \frac{U_{Steuer}}{\hat{U}_{SZ}}\cdot T_S$
+			\item \includegraphics[width=160px]{ZeitverlaufTiefsetzsteller.png}
+			\item Tastgrad: $D = \frac{t_{Ein}}{T_S}$
+			\item Schaltbedingung:
+			\item $u_{Komp} > 0 \Rightarrow $ MOSFET eingeschaltet $u_0(t) = U_d$
+			\item $u_{Komp} < 0 \Rightarrow $ MOSFET ausgeschaltet $ u_0(t) = 0$
+			\item Mittelwert der Ausgangsspannung: $U_0 = \frac{t_{ein}}{T_S}\cdot U_d = D \cdot U_d$
+			\item $T_S = \frac{1}{f_S}$
+			\item $t_{Ein} = \frac{U_{Steuer}}{\hat{U}_{SZ}}\cdot T_S$
+		\end{bluebox}
+
+	
 	\end{sectionbox}
 % ======================================================================
 % End
