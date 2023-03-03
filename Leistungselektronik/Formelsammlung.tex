@@ -223,8 +223,50 @@
 			\includegraphics[width=180px]{ZweiquadrantenstellerStromumkehr.png}
 		\subsection{Zweiquadrantensteller mit Spannungsumkehr}
 			\includegraphics[width=180px]{ZweiquadrantenstellerSpannungsumkehr.png}
+			\subsubsection{Steuergesetz}
+				\begin{bluebox}
+					\item Nicht lückender Betrieb: $\frac{U_0}{U_d} = 2 \cdot D_{TA+} -1$
+					\item Versetzte Taktung: $\frac{U_0}{U_d} = (D -1)$
+				\end{bluebox}
+
 
 	\end{sectionbox}
+\section{Gleichstromsteller im Vierquadrantenbetrieb}
+	\begin{sectionbox}
+		\subsection{Grundlagen}
+			\includegraphics[width=180px]{DCStellerVierQuadranten.png}
+			\begin{bluebox}
+				\item Die Verriegelungszeit bezeichnet das Zeitintervall, in dem beide Schalter einer Halbbrücke gleichzeitig abgeschaltet sind.
+				\item $u_0(t) = u_{AN}(t)-u_{BN}(t)$
+			\end{bluebox}
+		\subsection{Pulsbreitenmodulation mit zwei Spannungsniveaus}
+			\begin{bluebox}{Mittelwerte $U_{AN}$ und $U_{BN}$}
+				\item $ U_{AN} = \frac{U_d \cdot t_{ein}+0\cdot t_{aus}}{T_S} = U_d \frac{t_{ein}}{T_S} = U_d \cdot D_{TA+}$
+				\item $ U_{BN} = \frac{U_d \cdot t_{ein}+0\cdot t_{aus}}{T_S} = U_d \frac{t_{ein}}{T_S} = U_d \cdot D_{TB+}$
+			\end{bluebox}
+			\begin{bluebox}{Schaltbedingungen}
+				\item $T_{A+}, T_{B-}$ ein wenn: $u_{Steuer} > u_\Delta$
+				\item $T_{A-}, T_{B+}$ ein wenn: $u_{Steuer} \leq u_\Delta$
+				\item \includegraphics[width=180px]{ZeitverlaufVierquadrantensteller.png}
+				\item $u_\Delta = \hat{U}_\Delta \cdot \frac{t}{T_S/4}$ mit $-\frac{T_S}{4} < t < \frac{T_S}{4}$
+				\item $t_1 = \frac{u_{Steuer}}{\hat{U}_\Delta}\cdot \frac{T_S}{4}$
+				\item $D_{TA+} = \frac{t_{ein}}{T_S} = \frac{2\cdot t_1 +\frac{T_S}{2}}{T_S} = 2\cdot\frac{t_1}{T_S}+\frac{1}{2} = \frac{1}{2}\left(1+\frac{u_{Steuer}}{\hat{U}_\Delta}\right)$
+				\item $T_{TB+} = 1-D_{TA+}$
+				\item $U_0 = U_{AN}-U_{BN} = U_d \cdot D_{TA+}-U_d\cdot D_{TB+} = U_d\cdot \frac{U_{Steeuer}}{\hat{U}_\Delta}$
+			\end{bluebox}
+	\end{sectionbox}
+	\begin{sectionbox}
+		\subsection{Pulsbreitenmodulation mit drei Spannungsniveaus (PWM3)}
+		\begin{bluebox}{Schaltbedingungen}
+			\item $T_{A+}$ ein, wenn $u_{Steuer} \geq u_\Delta$, $T_{A-}$ ein, wenn $u_{Steuer} < u_\Delta$
+			\item $T_{B+}$ ein, wenn $-u_{Steuer} \geq u_\Delta$, $T_{B}$ ein, wenn $-u_{Steuer} < u_\Delta$
+			\item $D_{TB+} = \frac{\frac{T_S}{2}-2t_1}{T_S} = \frac{1}{2}-\frac{2t_1}{T_S}$
+			\item \includegraphics[width=180px]{PWM3Verlauf.png}
+		\end{bluebox}	
+	\end{sectionbox}
+\section{Umrichter}
+
+
 % ======================================================================
 % End
 % ======================================================================
