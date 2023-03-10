@@ -66,7 +66,7 @@
 	\begin{sectionbox}
 		\begin{symbolbox}
 			\item Arith. Mittelwert einer Mischspannung: $\overline{u}_{di} = U_{di} = \frac{1}{T}\int\limits_0^T u_d(t)\,dt$
-			\item Effektivwert: $U_{RMS} = \sqrt{\frac{1}{T}\cdot \int\limits_0^T u^2_d(t)\,dt}= \sqrt{\frac{1}{2\pi}\cdot \int\limits_0^{2\pi} u^2_d(\omega t)\,d\omega t}$
+			\item Effektivwert: $U_{RMS} = \sqrt{\frac{1}{T}\cdot \int\limits_{\alpha}^\beta u^2_d(t)\,dt}= \frac{u_d \cdot \sqrt{2(\sin(2\alpha)-2\alpha - \sin(2\beta)+2\beta)}}{4\cdot\sqrt{\pi}}$
 		\end{symbolbox}
 		\begin{cookbox}{Effektivwert einer diskreten Spannung}
 			\item Spannung in Spannungen mit gleichem $\hat{U}$ aufteilen.
