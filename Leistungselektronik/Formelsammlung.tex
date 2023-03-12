@@ -66,7 +66,8 @@
 	\begin{sectionbox}
 		\begin{symbolbox}
 			\item Arith. Mittelwert einer Mischspannung: $\overline{u}_{di} = U_{di} = \frac{1}{T}\int\limits_0^T u_d(t)\,dt$
-			\item Effektivwert: $U_{RMS} = \sqrt{\frac{1}{T}\cdot \int\limits_{\alpha}^\beta u^2_d(t)\,dt}= \frac{u_d \cdot \sqrt{2(\sin(2\alpha)-2\alpha - \sin(2\beta)+2\beta)}}{4\cdot\sqrt{\pi}}$
+			\item Effektivwert: $U_{RMS} = \sqrt{\frac{1}{T}\cdot \int\limits_{\alpha}^\beta u^2_d(t)\,dt}$
+			\item Für Sinusspannung: $U_{RMS} = \frac{u_d \cdot \sqrt{2(\sin(2\alpha)-2\alpha - \sin(2\beta)+2\beta)}}{4\cdot\sqrt{\pi}}$
 		\end{symbolbox}
 		\begin{cookbox}{Effektivwert einer diskreten Spannung}
 			\item Spannung in Spannungen mit gleichem $\hat{U}$ aufteilen.
@@ -75,8 +76,7 @@
 		\end{cookbox}
 	\subsection{Welligkeit, Klirr und Formfaktor}
 		\begin{symbolbox}{Welligkeit (Ripple)}
-			\item $w_U = \frac{U_{RMS}}{U_d} = \sqrt{\frac{U_{RMS\,ges}^2}{U_d^2}-1}$
-			\item $w_I = \frac{I_{RMS}}{I_d} = \sqrt{\frac{I_{RMS\,ges}^2}{I_d^2}-1}$
+			\item $w_U = \frac{U_{RMS}}{U_d} = \sqrt{\frac{U_{RMS\,ges}^2}{U_d^2}-1}$\qquad $w_I = \frac{I_{RMS}}{I_d} = \sqrt{\frac{I_{RMS\,ges}^2}{I_d^2}-1}$
 			\item Welligkeit reiner Gleichgrößen: $w = 0$.
 			\item Welligkeit reiner Wechselgrößen: $w =$ sehr groß.
 		\end{symbolbox}
@@ -178,7 +178,9 @@
 
 			$U_{RMS} = \hat{U}_S \sqrt{\left[ \frac{1}{2}+\frac{3}{4\pi}\cdot \frac{\sqrt{3}}{2}\right]} = 0,8405\cdot \hat{U}_S$
 			\subsubsection{Steuergesetz}
-			$U_{di\alpha} = \frac{3\cdot \sqrt{3}\cdot \hat{U_s}}{2\pi}\cdot \cos \alpha = \frac{3\cdot \sqrt{3}\cdot \sqrt{2}\cdot U_{s}}{2\pi} \cdot \cos \alpha$
+			Für nicht lückender Betrieb $\alpha < 30^\circ$: $U_{di\alpha} = \frac{3\cdot \sqrt{3}\cdot \hat{U_s}}{2\pi}\cdot \cos \alpha$
+
+			Für lückender Betrieb($\alpha < 30^\circ$): $U_{di\alpha} = U_{di0}\cdot \frac{1+\cos(30^\circ + \alpha)}{1+\sqrt{3}/2}$
 
 	\end{sectionbox}
 \section{Gleichstromsteller im Einquadrantenbetrieb}
@@ -275,6 +277,25 @@
 		\end{bluebox}	
 	\end{sectionbox}
 \section{Umrichter}
+\begin{sectionbox}
+	\subsection{Grundlagen}
+		\begin{bluebox}
+			\item $\hat{U}_{0,1}$: Sinusförmige Grundschwingung.
+			\item F der Grundschwingung = F der Rechteckspannung.		
+		\end{bluebox}
+	\subsection{Einphasige spannunngseinprägende Wechselrichter}
+		\begin{bluebox}
+			\item $\hat{U}_{0,1} = \frac{2}{\pi}\cdot U_d$.	
+		\end{bluebox}
+	\subsection{Vierquadrantensteller mit Grundfrequenztaktung}
+		\begin{bluebox}
+			\item $\hat{U}_{0,1} = \frac{4}{\pi}\cdot U_d$.	
+		\end{bluebox}
+	\subsection{Unterschwingungsverfahren}
+		\begin{bluebox}
+			\item $U_0 = U_d \cdot \frac{u_{Steuer}}{\hat{U}_\Delta}$
+		\end{bluebox}
+\end{sectionbox}
 
 
 % ======================================================================
