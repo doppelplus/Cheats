@@ -15,9 +15,9 @@
 % defaults: color, english
 \documentclass[german]{latex4ei/latex4ei_sheet}
 \usepackage{stix}
-\usepackage[ngerman]{babel} 
+\usepackage[ngerman]{babel}
 % set document information
-\title{Leistungselektronik \\ Cheat Sheet}
+\title{Leistungselektronik Cheat Sheet}
 \author{Raoul Duke}
 \myemail{0x4723@gmail.com}
 \mywebsite{www.github.com/doppelplus/CheatSheets}
@@ -80,26 +80,18 @@
 			\item Welligkeit reiner Gleichgrößen: $w = 0$.
 			\item Welligkeit reiner Wechselgrößen: $w =$ sehr groß.
 		\end{symbolbox}
-		\begin{bluebox}{Klirrfaktor (THD)}
-			\item $K_U =   \frac{U_{RMS\, OS}}{U_{RMS}}$
-			\item $K_I =   \frac{I_{RMS\, OS}}{I_{RMS}}$
+		\begin{bluebox}{Klirrfaktor (THD) \& Formfaktor }
+			\item $K_U =   \frac{U_{RMS\, OS}}{U_{RMS}}$\qquad $K_I =   \frac{I_{RMS\, OS}}{I_{RMS}}$
+			\item \item $F = \frac{U_{d\,RMS}}{U_{di}}$
 		\end{bluebox}
-
-		\begin{symbolbox}{Formfaktor}
-			\item $F = \frac{U_{d\,RMS}}{U_{di}}$
-		\end{symbolbox}
-	\subsection{Eigenschaften netzgeführter Stromrichterschaltungen}
-		\begin{tabular}{|l|c|c|c|c|c|}
-			\hline
-			& \textbf{M1} & \textbf{M2}& \textbf{M3}& \textbf{B2C}& \textbf{B6C}\\
-			\hline
-			$U_{di0}/U_S$ & 0,45 & 0,9 & 1,17 & 1,8 & 2,34\\
-			\hline
-			Steuergesetz  & \multicolumn{4}{c}{$U_{di0}\cos \alpha$}&\\
-			\hline
-			Welligkeit $w_{u0}$ &1,21 & 0,48 & 0,183 & 0,48 & 0,042\\
-			\hline			
-		\end{tabular}
+		\subsection{Mittelwerte}
+		\begin{bluebox}
+			\item Rechteckimpuls:$\overline{U} = \frac{\hat{U}_S\cdot t_i}{T}$
+			\item Dreieckimpuls:$\overline{U} = \frac{\hat{U}_S}{2}$
+			\item Sägezahnimpuls: $\overline{U} = \frac{\hat{U}_S\cdot t_i}{2T}$
+			\item Halber Sinus(DC): $\overline{U}= \frac{\hat{U}_S}{\pi}$
+			\item Voller Sinus(DC): $\overline{U} = \frac{\hat{U}_S\cdot 2}{\pi}$
+		\end{bluebox}
 	\end{sectionbox}
 \section{Leistungsberechnung}
 	\begin{sectionbox}
@@ -172,7 +164,7 @@
 			\subsubsection{Steuergesetz}
 				Bei nicht lückendem Betrieb ergibt sich für $U_{di\alpha}$:
 
-				$U_{di\alpha} = \frac{1}{2\pi}\int\limits_\alpha^{2\pi+\alpha}u_d(\omega t)d(\omega  t) = \frac{2\cdot \sqrt{2}}{\pi}\cdot \hat{U}_S \cdot \cos \alpha$
+				$U_{di\alpha} = \frac{1}{2\pi}\int\limits_\alpha^{2\pi+\alpha}u_d(\omega t)d(\omega  t) = \frac{2\cdot \sqrt{2}}{\pi}\cdot U_S \cdot \cos \alpha$
 		\subsection{Dreiphasige Mittelpunktschaltung M3C}
 			\includegraphics[width=120px]{M3C.png}
 
