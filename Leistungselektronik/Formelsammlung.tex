@@ -16,6 +16,8 @@
 \documentclass[german]{latex4ei/latex4ei_sheet}
 \usepackage{stix}
 \usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{pgfplots}
 % set document information
 \title{Leistungselektronik Cheat Sheet}
 \author{Raoul Duke}
@@ -50,7 +52,6 @@
 	\begin{sectionbox}
 		\begin{symbolbox}{Allgemeines}
 			\item Tastverhältnis: $D = \frac{\tau_i}{T}$
-			\item Funktion einer Sinusspannung: $u(t) = \hat{U_s} \cdot \sin(\omega t)$
 		\end{symbolbox}
 		\begin{bluebox}{Physikalische Größen}
 			\item $U_0$: Gleichspannung
@@ -81,16 +82,48 @@
 			\item Welligkeit reiner Wechselgrößen: $w =$ sehr groß.
 		\end{symbolbox}
 		\begin{bluebox}{Klirrfaktor (THD) \& Formfaktor }
-			\item $K_U =   \frac{U_{RMS\, OS}}{U_{RMS}}$\qquad $K_I =   \frac{I_{RMS\, OS}}{I_{RMS}}$
-			\item \item $F = \frac{U_{d\,RMS}}{U_{di}}$
+			\item $K_U =   \frac{U_{RMS\, OS}}{U_{RMS}}$\qquad $K_I =   \frac{I_{RMS\, OS}}{I_{RMS}}$ \qquad$F = \frac{U_{d\,RMS}}{U_{di}}$
 		\end{bluebox}
-		\subsection{Mittelwerte}
+		\subsection{Mittel- und Effektivwerte}
 		\begin{bluebox}
-			\item Rechteckimpuls:$\overline{U} = \frac{\hat{U}_S\cdot t_i}{T}$
-			\item Dreieckimpuls:$\overline{U} = \frac{\hat{U}_S}{2}$
-			\item Sägezahnimpuls: $\overline{U} = \frac{\hat{U}_S\cdot t_i}{2T}$
-			\item Halber Sinus(DC): $\overline{U}= \frac{\hat{U}_S}{\pi}$
-			\item Voller Sinus(DC): $\overline{U} = \frac{\hat{U}_S\cdot 2}{\pi}$
+			\item \begin{tikzpicture} % Rechteck
+				\draw[->] (0,0) -- (0.4,0.0);
+				\draw[->] (0,0) -- (0,0.3);
+				\draw[line width=0.2mm] (0,0) -- (0,0.2) -- (0.1,0.2) -- (0.1,0) -- (0.2,0) -- (0.2,0)--(0.2,0)--(0.2,0.2)--(0.3,0.2)--(0.3,0);
+				\node[anchor=north west] at (0.8,0.4) {$\overline{U} = \frac{\hat{U}_S\cdot t_i}{T}$ | $U = \frac{\hat{U}_S}{\sqrt{2}}$};
+				\end{tikzpicture}
+			\qquad \begin{tikzpicture} % Dreieck
+				\draw[->] (0,0) -- (0.5,0.0);
+				\draw[->] (0,0) -- (0,0.3);
+				\draw[line width=0.2mm] (0,0) -- (0.1,0.2) -- (0.2,0) -- (0.3,0.2) -- (0.4,0);
+				\node[anchor=north west] at (0.7,0.4) {$\overline{U} = \frac{\hat{U}_S}{2}$ | $U = \frac{\hat{U}_S}{\sqrt{3}}$};
+				\end{tikzpicture}
+			\item \begin{tikzpicture} % Sägezahn
+				\draw[->] (0,0) -- (0.4,0.0);
+				\draw[->] (0,0) -- (0,0.3);
+				\draw[line width=0.2mm] (0,0) -- (0.1,0.2) -- (0.1,0) -- (0.2,0.2) -- (0.2,0) -- (0.3,0.2) -- (0.3,0) ;
+				\node[anchor=north west] at (0.8,0.4) {$\overline{U} = \frac{\hat{U}_S\cdot t_i}{2T}$ | $U = \hat{U}_S \cdot \sqrt{\frac{t_i}{\sqrt{3T}}}$};
+				\end{tikzpicture}
+			\item \begin{tikzpicture} % Sinusspannung mit M1U
+				\draw[->] (0,0) -- (0.9,0);
+				\draw[->] (0,0) -- (0,0.4);
+				\draw[line width=0.2mm] plot[domain=0:0.25,samples=100] (\x,{0.3 * sin(4*pi*\x r)}) -- plot[domain=0.5:0.75,samples=100] (\x,{0.3 * sin(4*pi*\x r)});
+				\node[anchor=north west] at (0.8,0.5) {$\overline{U}= \frac{\hat{U}_S}{\pi}$ | $U = \frac{\hat{U}_S}{2}$};
+				\end{tikzpicture}
+			\qquad\begin{tikzpicture} % Sinusspannung mit B2U
+				\draw[->] (0,0) -- (0.7,0);
+				\draw[->] (0,0) -- (0,0.4);
+				\draw[line width=0.2mm] plot[domain=0:0.5,samples=100] (\x,{sqrt((0.3 * sin(4*pi*\x r))^2)});
+				\node[anchor=north west] at (0.8,0.5) {$\overline{U}= \frac{2\cdot \hat{U}_S}{\pi}$ | $U = \frac{\hat{u}}{\sqrt{2}}$};
+			\end{tikzpicture}
+			\item \begin{tikzpicture} % Sinusspannung mit B2U
+					\draw[->] (0,0) -- (0.7,0);
+					\draw[->] (0,0) -- (0,0.4);
+					\draw[line width=0.2mm] plot[domain=0:0.5,samples=100] (\x,{sqrt((0.3 * sin(4*pi*\x r))^2)})  plot[domain=0.0:0.5,samples=100] (\x,{sqrt((0.3 * cos(4*pi*\x r))^2)});
+					\node[anchor=north west] at (0.8,0.5) {$\overline{U}= \frac{3\cdot \sqrt{3}\cdot \hat{U}_S}{2\pi}$ | $U = \frac{\hat{u}}{\sqrt{2}}$};
+				\end{tikzpicture}
+		
+
 		\end{bluebox}
 	\end{sectionbox}
 \section{Leistungsberechnung}
