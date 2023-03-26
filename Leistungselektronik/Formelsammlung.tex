@@ -52,6 +52,7 @@
 	\begin{sectionbox}
 		\begin{symbolbox}{Allgemeines}
 			\item Tastverhältnis: $D = \frac{\tau_i}{T}$
+			\item $U_{di\alpha} = U_{di0} \cdot \cos\alpha$
 		\end{symbolbox}
 		\begin{bluebox}{Physikalische Größen}
 			\item $U_0$: Gleichspannung
@@ -116,11 +117,11 @@
 				\draw[line width=0.2mm] plot[domain=0:0.5,samples=100] (\x,{sqrt((0.3 * sin(4*pi*\x r))^2)});
 				\node[anchor=north west] at (0.8,0.5) {$\overline{U}= \frac{2\cdot \hat{U}_S}{\pi}$ | $U = \frac{\hat{u}}{\sqrt{2}}$};
 			\end{tikzpicture}
-			\item \begin{tikzpicture} % Sinusspannung mit B2U
+			\item \begin{tikzpicture} % Sinusspannung mit B6U
 					\draw[->] (0,0) -- (0.7,0);
 					\draw[->] (0,0) -- (0,0.4);
-					\draw[line width=0.2mm] plot[domain=0:0.5,samples=100] (\x,{sqrt((0.3 * sin(4*pi*\x r))^2)})  plot[domain=0.0:0.5,samples=100] (\x,{sqrt((0.3 * cos(4*pi*\x r))^2)});
-					\node[anchor=north west] at (0.8,0.5) {$\overline{U}= \frac{3\cdot \sqrt{3}\cdot \hat{U}_S}{2\pi}$ | $U = \frac{\hat{u}}{\sqrt{2}}$};
+					\draw[line width=0.2mm] plot[domain=0:0.5,samples=100] (\x,{sqrt((0.3 * sin(4*pi*\x r))^2)})  plot[domain=0.0:0.5,samples=100] (\x,{sqrt((0.3 * cos(4*pi*\x r))^2)}) ;
+					\node[anchor=north west] at (0.8,0.5) {B6U: $\overline{U}= \frac{3\cdot \sqrt{3}\cdot \hat{U}_S}{\pi}$ | $U = \frac{\hat{u}}{\sqrt{2}}$};
 				\end{tikzpicture}
 		
 
@@ -176,10 +177,7 @@
 				\item $S$: Strang
 				\item $N$: verkettet Größe
 			\end{bluebox}
-		\subsection{Welligkeit}
-			\begin{bluebox}
-				\item $w_U = \sqrt{\frac{U_{RMS}^2}{U_d^2}-1}$
-			\end{bluebox}
+		\begin{symbolbox}
 		\subsection{Einphasige Mittelpunktschaltung M1}
 			\subsubsection{Aufbau und Funktion}
 				\includegraphics[width=110px]{Mittelpunktschaltung.png}
@@ -187,8 +185,9 @@
 					Rein ohmsche Last: $U_{di\alpha} = \frac{\hat{U}_S}{2\pi}\cdot (1+\cos  \alpha)$
 
 					$\frac{U_{di\alpha}}{U_{di0}} = \frac{1+\cos \alpha}{2}$
-
-		\subsection{Zweiphasige Mittelpunktschaltung M2C}
+		\end{symbolbox}
+		\begin{symbolbox}
+			\subsection{Zweiphasige Mittelpunktschaltung M2C}
 			\includegraphics[width=110px]{ZweiphasigeMittelpunktschaltung.png}
 
 			$u_{s12} = u_{s1}-u_{s2} = u_N \cdot \frac{N_2}{N_1}$
@@ -198,15 +197,20 @@
 				Bei nicht lückendem Betrieb ergibt sich:
 
 				$U_{di\alpha} = \frac{1}{2\pi}\int\limits_\alpha^{\pi+\alpha}u_d(\omega t)d(\omega  t) = \frac{2\cdot \sqrt{2}}{\pi}\cdot U_S \cdot \cos \alpha$
+		\end{symbolbox}
+		\begin{symbolbox}
 		\subsection{Dreiphasige Mittelpunktschaltung M3C}
 			\includegraphics[width=120px]{M3C.png}
 
 			$U_{RMS} = \hat{U}_S \sqrt{\left[ \frac{1}{2}+\frac{3}{4\pi}\cdot \frac{\sqrt{3}}{2}\right]} = 0,8405\cdot \hat{U}_S$
+			
+			$U_{di0} = \frac{3\cdot \sqrt{3}\cdot \hat{U}_S}{2\pi}$
+
 			\subsubsection{Steuergesetz}
-			Für nicht lückender Betrieb $\alpha < 30^\circ$: $U_{di\alpha} = \frac{3\cdot \sqrt{3}\cdot \hat{U_s}}{2\pi}\cdot \cos \alpha$
+			Für nicht lückenden Betrieb $\alpha < 30^\circ$: $U_{di\alpha} = \frac{3\cdot \sqrt{3}\cdot \hat{U_s}}{2\pi}\cdot \cos \alpha$
 
-			Für lückender Betrieb($\alpha < 30^\circ$): $U_{di\alpha} = U_{di0}\cdot \frac{1+\cos(30^\circ + \alpha)}{1+\sqrt{3}/2}$
-
+			Für lückenden Betrieb($\alpha < 30^\circ$): $U_{di\alpha} = U_{di0}\cdot \frac{1+\cos(30^\circ + \alpha)}{1+\sqrt{3}/2}$
+		\end{symbolbox}
 	\end{sectionbox}
 \section{Gleichstromsteller im Einquadrantenbetrieb}
 	\begin{sectionbox}
