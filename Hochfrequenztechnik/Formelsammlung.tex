@@ -12,16 +12,58 @@
 \maketitle
 
 \section{(Wideband) Code Division Multiple Access}
-\begin{sectionbox}
-    \begin{bluebox}{Signalspreizung}
-        \item Direct Sequence CDMA.
-        \item Datenstrom wird bei Sender \& Empfänger mit Spreizcode multipliziert.
-        \item Mehrere Datenströme können im gleichen Frequenzband übertragen werden.
-        \item \includegraphics[width=185px]{img/Signalspreizung.png}
-        \item $[Spreizfaktor\,(SF)] = \frac{[Chiprate\, b_c]}{[Nutzdatenrate\,b_n]}$
-        \item \includegraphics[width=185px]{img/SpektrumSpreizung.png} 
-        \item $[Processing\, Gain (PG)] = 10\log SF\,dB$
-    \end{bluebox}
-\end{sectionbox}
+    \begin{sectionbox}
+        \begin{bluebox}{Signalspreizung}
+            \item Direct Sequence CDMA.
+            \item Datenstrom wird bei Sender \& Empfänger mit Spreizcode multipliziert.
+            \item Mehrere Datenströme können im gleichen Frequenzband übertragen werden.
+            \item \includegraphics[width=185px]{img/Signalspreizung.png}
+            \item \includegraphics[width=185px]{img/SpektrumSpreizung.png} 
+        \end{bluebox}
+        \begin{symbolbox}{Formelzeichen}
+            \item Spreizfaktor: $SF$
+            \item Processing Gain: $PG$
+            \item Chiprate: $b_c$
+            \item Nutzdatenrate: $b_n$
+            \item Störabstand: $SIR$
+            \item Signalleistung: $S$
+            \item Anzahl der aktiven Signale in der Funkzelle: $N$
+            \item Mittlere Nutzenergie pro Bit: $E_b$
+            \item Rauschenergie pro Bit: $N_0$
+        \end{symbolbox}
+        
+        \begin{bluebox}
+            \item $PG = 10\log SF\,dB$
+            \item $SF = \frac{b_c}{b_n}$
+            \item $SIR = \frac{S}{(N-1)\cdot S}= \frac{1}{1 N-1}$
+            \item $\frac{E_b}{N_0} = \frac{S/b_N}{((N-1)S)/b_c} = \frac{1}{N-1}\cdot \frac{b_c}{b_N} = SIR \cdot SF$
+            \item $10 \cdot \log \left(\frac{E_b}{N_0}\right) = 10\cdot \log (SIR)+ PG\,dB$
+            \item $N = \frac{b_C}{E_b/N_0\cdot b_N}+1$
+        \end{bluebox}
+    \end{sectionbox}
+\vspace{4cm}
+    \section{Orthogonal Frequency Division Multiplexing}
+    \begin{sectionbox}
+        \begin{symbolbox}{Formelzeichen}
+            \item Bandbreite: $W$
+            \item Anzahl der Unterträger: $n$
+            \item Breite der Unterträger: $B_U$+
+            \item Symboldauer: $T_D$
+            \item Zeitintervall: $T_S$ 
+            \item Datensymbole: $D_0 \dots D_{-1}$
+            \item Grundfrequenz: $f_G$
+            \item Kanalfrequenz: $f_k$
+        \end{symbolbox}
+        
+        \begin{bluebox}{Formeln}
+            \item $B_U = \frac{W}{n}$
+            \item $f_k =k \cdot f_G$\quad $k$ ganzzahlig mit $-\frac{n}{2}\geq k \geq \frac{n}{2}-1$ 
+            \item $f_G = \frac{1}{T_S}$
+            \item $T_S = n \cdot T_D$
+            \item $\Delta f = f_k - f_{k-1} = k\cdot f_G -(k-1)\cdot f_G = f_G$
+        \end{bluebox}
+    \end{sectionbox}
+
+
 
 \end{document}
