@@ -18,7 +18,7 @@
             \item Datenstrom wird bei Sender \& Empfänger mit Spreizcode multipliziert.
             \item Mehrere Datenströme können im gleichen Frequenzband übertragen werden.
             \item \includegraphics[width=185px]{img/Signalspreizung.png}
-            \item \includegraphics[width=185px]{img/SpektrumSpreizung.png} 
+            \item Das Spektrum des gespreizten Nutzsignals ist um ein vielfaches breiter, als das originäre Signal. 
         \end{bluebox}
         \begin{symbolbox}{Formelzeichen}
             \item Spreizfaktor: $SF$
@@ -53,17 +53,35 @@
             \item Datensymbole: $D_0 \dots D_{-1}$
             \item Grundfrequenz: $f_G$
             \item Kanalfrequenz: $f_k$
+            \item Abtastrate: $f_A$
         \end{symbolbox}
         
         \begin{bluebox}{Formeln}
             \item $B_U = \frac{W}{n}$
             \item $f_k =k \cdot f_G$\quad $k$ ganzzahlig mit $-\frac{n}{2}\geq k \geq \frac{n}{2}-1$ 
-            \item $f_G = \frac{1}{T_S}$
+            \item $f_A = f_G = \frac{1}{T_S}$
             \item $T_S = n \cdot T_D$
             \item $\Delta f = f_k - f_{k-1} = k\cdot f_G -(k-1)\cdot f_G = f_G$
         \end{bluebox}
     \end{sectionbox}
 
+    \section{Funkfelddämpfung}
+    \begin{sectionbox}
+        \begin{symbolbox}{Formelzeichen}
+            \item \includegraphics[width=185px]{img/Funkuebertragungssystem.png}
+            \item Gewinn der Sendeantenne: $G_s$
+            \item Gewinn der Empfangsantenne: $G_e$
+            \item Sendeleistung: $P_s$
+            \item Empfangsleistung: $P_e$
+            \item Funkfelddämpfung: $a$
+            \item Freiraumdämpfung: $a_0$
+        \end{symbolbox}
+        
+        \begin{bluebox}{Formeln}
+            \item $a = \frac{P_s}{P_e} = \frac{(4\pi l)^2}{\lambda^2 G_e G_s}$
+
+        \end{bluebox}
+    \end{sectionbox}
 
 
 \end{document}
