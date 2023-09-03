@@ -16,7 +16,7 @@
         \item $F = \frac{c}{\lambda} \rightarrow \lambda = \frac{c}{F}$
     \end{sectionbox}
     \begin{sectionbox}{\textbf{dBm}}
-        \item dBm (Dezibel Milliwatt) ist die Einheit des Leistungspegels LP, der das Verhältnis einer Leistung P im Vergleich zur Bezugsleistung von 1 mW beschreibt. 
+        \item dBm (Dezibel Milliwatt) ist die Einheit des Leistungspegels LP, der das Verhältnis einer Leistung P im Vergleich zur Bezugsleistung von 1\,mW beschreibt. 
         \item $L_p[dBm] = 10\lg\left(\frac{P}{1\,mW}\right)$
         \item $P[mW] = 10^{\left(\frac{L_p[dBm]}{10}\right)}\cdot 1\,mW$
         \item \begin{symbolbox} {Rechnen mit dBm oder dBW}
@@ -140,7 +140,7 @@
     \end{sectionbox}
 \section{Satellitenfunk}
     \begin{sectionbox}{\subsection{Satellitenbahnen}}
-       \item \includegraphics[width=185px]{img/Satellitenumlauf.png}
+       \item \includegraphics[width=180px]{img/Satellitenumlauf.png}
        \item Gravitationskonstante: $\gamma_s = 6,67\cdot 10^{-11}\, Nm^2/kg^2$
        \item Umlaufzeit: $T = 2\pi \sqrt{\frac{(R+H)^3}{\gamma_s M_E}}$
        \item Bahngeschwindigkeit: $v_{sat} = 2\pi \frac{H+R}{T}$
@@ -158,6 +158,7 @@
         \item Trägerleistung: $C = P_s G_s G_e/a_0 a_z$
         \item Störabstand dez: $C/N = \frac{P_s G_s G_e}{k_B T_e a_0 a_z M}$
         \item Störabstand log: $C/N = EIRP + (G_e-T_e)-a_0-a_z-M-B_r+k_B$
+        \item Gewinn: $G = EIRP - P$
         \item Bei $\lim\limits_{C/N\rightarrow 0}$ : $EIRP = -(G_E-T_E) + a_0 + B_r + M + a_z - k_B$    
     \end{sectionbox}
 \section{Mikrowellentechnik}
