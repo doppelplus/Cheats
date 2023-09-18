@@ -1,6 +1,5 @@
 import math
 import sympy as sp
-#import numpy as np
 from prettytable import PrettyTable
 
 
@@ -456,12 +455,27 @@ def newton_interpolation() -> None:
     print("\n")
 
 
-def runge_kutta() -> None:
-    f = Equation(input("Type f in python syntax:\t"))
-    print(f)
-    # h = int(input("Type value for h:\t"))
+def linearizer()-> None:
+    p1 = list(map(float, input("Insert first Point, separated with 'space':\t").split()))
+    p2 = list(map(float, input("Insert first Point, separated with 'space':\t").split()))
+    
+    m = (p1[1]-p2[1]) / (p1[0]-p2[0])
 
-    # f_iteration = Equation(f'y + {h} * {f.x = }')
+    b = p1[1] - m * p1[0]
+
+    print(f'm = ∆y / ∆x → m = {p1[1]} - {p2[1]} / {p1[0]} - {p2[0]} → m = {m:.3f}\n')
+    print(f'b = y - m * x → b = {p1[1]} - {m} * {p1[0]} → b = {b:.3f}\n')
+    print(f'f(x) = {m} * x + {b}\n')
+
+    x = 0
+    while(x != 'c'):
+        x = input('Input value for x (Cancel with char):\t')
+        if x.isalpha():
+            return
+        x = float(x)
+        print(f'f({x}) = {m} * {x} + {b} → f({x}) = {(m*x+b):.3f}')
+
+
 
 def print_menu() -> None:
     print("\n"
@@ -475,7 +489,7 @@ def print_menu() -> None:
           "7 Gauss-Seidel Method\n"
           "8 Lagrange interpolation\n"
           "9 Newton interpolation\n"
-          "a Runge Kutta\n"
+          "a Linearizer\n"
           "Press 'c' to close")
 
 
@@ -507,7 +521,7 @@ def main() -> None:
             case '9':
                 newton_interpolation()
             case 'A':
-                runge_kutta()
+                linearizer()
             case _:
                 print("Input Error")
 
