@@ -3,8 +3,6 @@ import sympy as sp
 from prettytable import PrettyTable
 
 
-
-
 class Equation:
     def __init__(self, equation):
         self.ALLOWED_NAMES = {k: v for k, v in math.__dict__.items() if not k.startswith("__")}
@@ -31,7 +29,7 @@ class Equation:
 
 def simpson_method() -> None:
     answer = []
-    print("Solve Integrals with Simpson rule")
+    print("Solve Integrals with Simpson method")
     equation_string = input("Type equation in python syntax:\t")
     n = int(input("Type value for n:\t"))
     if n < 1:
